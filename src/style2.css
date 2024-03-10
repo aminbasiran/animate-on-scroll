@@ -1,0 +1,146 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    .tags{
+        @apply p-4 rounded-lg bg-cyan-400/20
+    }
+}
+
+html{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden ;
+}
+
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.background{
+    background-image: url("./asset/bg-2.jpg");
+}
+
+.top-loader{
+    height:10px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background-color: cyan;
+    width: 100%;
+    scale: 0 1 ;
+    transform-origin: left;
+    animation: scroll-watcher linear;
+    animation-timeline: scroll();
+}
+
+.fade-in{
+    animation: fade-in linear;
+    animation-timeline: view();
+    animation-range: entry 0% contain 100%;
+}
+
+.fade-in-text{
+    animation: fade-in-text linear;
+    animation-timeline: view();
+    animation-range: cover 0% cover 60%;
+}
+
+.fade-out{
+    animation: fade-out linear forwards;
+    animation-timeline: view();
+}
+
+.fade-right-text{
+    animation: fade-right-text linear;
+    animation-timeline: view();
+    animation-range: cover 0% cover 30%;
+}
+.fade-left-text{
+    animation: fade-left-text linear;
+    animation-timeline: view();
+    animation-range: cover 0% cover 30%;
+}
+
+.slide-left{
+    animation: slide-left linear;
+    animation-timeline: view() ;
+    animation-range: entry 0% contain 100%;
+}
+
+.slide-from-up-column{
+    animation: slide-from-up-column linear;
+    animation-timeline: view() ;
+}
+
+
+@keyframes slide-from-up-column {
+    from{
+        opacity: 0;
+        transform: translateY(-3200px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(2000px);
+    }
+}
+
+
+@keyframes fade-right-text {
+    from{
+        transform: translateX(-400px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fade-left-text {
+    from{
+        transform: translateX(400px);
+    }
+    to{
+        transform: translateX(0px);
+    }
+}
+
+@keyframes fade-in-text {
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+
+@keyframes fade-in {
+    from{
+        scale: .8;
+        opacity: 0;
+    }
+    to{
+        scale: 1;
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    40%{
+        opacity: 1;
+    }
+
+    85%,100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes scroll-watcher{
+    to {
+        scale: 1 1;
+    }
+}
